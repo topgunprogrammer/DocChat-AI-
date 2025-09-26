@@ -263,3 +263,25 @@ html,
   background: #f4511e;
   transform: scale(1.05);
 }
+
+/* ================= Header ================= */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-right: 15px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
