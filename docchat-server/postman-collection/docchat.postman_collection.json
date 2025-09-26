@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "DocChat API",
+    "_postman_id": "docchat-1234",
+    "description": "Postman collection for DocChat server APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload Document",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/upload",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["upload"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Document Signed URL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/documents/:key",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["documents", ":key"],
+          "variable": [
+            {
+              "key": "key",
+              "value": "REPLACE_WITH_S3_KEY",
+              "description": "The S3 object key returned from upload"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Extract Document Text",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/documents/:key/text",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["documents", ":key", "text"],
+          "variable": [
+            {
+              "key": "key",
+              "value": "REPLACE_WITH_S3_KEY",
+              "description": "The S3 object key returned from upload"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ollama Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"messages\": [\n    { \"role\": \"system\", \"content\": \"You are a helpful assistant.\" },\n    { \"role\": \"user\", \"content\": \"Summarize the document.\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/chat",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "chat"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
