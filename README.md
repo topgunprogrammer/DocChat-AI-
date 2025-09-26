@@ -118,9 +118,3 @@ Open a Pull Request.
 License
 
 MIT License
-
----
-
-If you want, I can also **add a minimal diagram showing React → Node → S3 → Ollama flow** for easier understanding for new developers.
-
-Do you want me to add that?
